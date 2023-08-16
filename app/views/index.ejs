@@ -1,0 +1,15 @@
+<%- include("partials/header")%>
+
+<ul class="list">
+    <% for (pokemon of pokemons){%>
+    <li class="list--item">
+        <a href="/detail/<%=pokemon.id%>">
+            <img src="/img/<%=pokemon.numero%>.png" alt="<%=pokemon.nom%> image" />
+            <p>
+                #<%=pokemon.numero%> <%=pokemon.nom%>
+            </p>
+        </a>
+    </li>
+    <%}%>
+</ul>
+<%- include("partials/footer")%>

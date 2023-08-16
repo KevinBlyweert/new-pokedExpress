@@ -1,0 +1,29 @@
+<%- include("partials/header")%>
+
+<%if(pokemon){%>
+    <section class="poke_detail">
+        <p class="poke_detail--title">Détails de <%=pokemon.nom%></p>
+        <div class="poke_detail--items">
+            <img class="items--img" src="/img/<%=pokemon.numero%>.png" alt="<%=pokemon.nom%> image" />
+            <section class="items--stats">
+                <p id="name" >#<%=pokemon.numero%> <%=pokemon.nom%></p>
+                <ul class="stats--types">
+                    <% for(type of pokemon.types){%>
+                        <li style="background-color: #<%=type.color%>;"><%=type.name%></li>
+                    <%}%>
+                </ul>
+                <p>Statistiques</p>
+                <ul class="stats--values">
+                    <li><span>PV</span><span class="stat_number"><%=pokemon.pv%></span><div class="fullbar"><div id="statbar" style="width: calc((<%=pokemon.pv%> * 100%) / 255);"></div></div></li>
+                    <li><span>Attaque</span><span class="stat_number"><%=pokemon.attaque%></span><div class="fullbar"><div id="statbar" style="width: calc((<%=pokemon.attaque%> * 100%) / 255);"></div></div></li>
+                    <li><span>Défense</span><span class="stat_number"><%=pokemon.defense%></span><div class="fullbar"><div id="statbar" style="width: calc((<%=pokemon.defense%> * 100%) / 255);"></div></div></li>
+                    <li><span>Attaque spé.</span><span class="stat_number"><%=pokemon.attaque_spe%></span><div class="fullbar"><div id="statbar" style="width: calc((<%=pokemon.attaque_spe%> * 100%) / 255);"></div></div></li>
+                    <li><span>Défense spé.</span><span class="stat_number"><%=pokemon.defense_spe%></span><div class="fullbar"><div id="statbar" style="width: calc((<%=pokemon.defense_spe%> * 100%) / 255);"></div></div></li>
+                    <li><span>Vitesse</span><span class="stat_number"><%=pokemon.vitesse%></span><div class="fullbar"><div id="statbar" style="width: calc((<%=pokemon.vitesse%> * 100%) / 255);"></div></div></li>
+                </ul>
+            </section>
+        </div>
+        <a href="/">Revenir à la liste</a>
+    </section>
+<%}%>
+<%- include("partials/footer")%>
